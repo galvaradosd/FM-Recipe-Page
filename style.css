@@ -1,13 +1,12 @@
-/***
-    The new CSS reset - version 1.11.3 (last updated 25.08.2024)
-    GitHub page: https://github.com/elad2412/the-new-css-reset
-***/
+/* FONT FAMILY */
 
-/*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
-    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
- */
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Outfit:wght@100..900&display=swap');
+
+
+/* =====================================================================
+                                CSS Reset
+   ===================================================================== */
+
 *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
   all: unset;
   display: revert;
@@ -120,3 +119,414 @@ meter {
 ::-webkit-details-marker {
   display: none;
 }
+
+
+/* =====================================================================
+                              VARIABLES
+   ===================================================================== */
+
+   :root{
+     /* === COLOR PALETTE === */
+     /* Base color from style guide */
+     --color-white  : hsl(0, 0%, 100%);
+
+     /* Stone scale - neutral grays with warm undertone */
+
+     --color-stone-100 : hsl(30, 54%, 90%);
+     --color-stone-150: hsl(30, 18%, 87%);
+     --color-stone-600: hsl(30, 10%, 34%);
+     --color-stone-900: hsl(30, 5%, 18%);
+
+     /* Brown - for ingredientes/instructions headings */
+
+     --color-brown-800: hsl(14, 45%,36%);
+
+     /* Rose - for preparation time section */
+
+     --color-rose-800: hsl(332, 51%, 32%);
+     --color-rose-50: hsl(330, 100%, 98%);
+
+     /* ======== TYPOGRAPHY ==================== */
+
+     /* Font families */
+     --font-serif: 'Young Serif', serif;
+     --font-sans: 'Outfit', sans-serif;
+
+     /* Font sizes - Mobile first */
+       --font-size-sm: 0.875rem;         /* 14px - small text, attribution */
+       --font-size-md: 1rem;             /* 16px - body text */
+       --font-size-lg: 1.25rem;          /* 20px - section subheadings */
+       --font-size-xl: 1.75rem;          /* 28px - main headings mobile */
+       --font-size-2xl: 2.25rem;         /* 36px - main heading desktop */
+
+       /* Font weights */
+       --font-weight-regular: 400;
+       --font-weight-semibold: 600;
+       --font-weight-bold: 700;
+
+       /* Line heights */
+       --line-height-tight: 1.2;         /* For headings */
+       --line-height-normal: 1.5;        /* For body text */
+       --line-height-relaxed: 1.6;       /* For paragraphs */
+
+
+       /* === SPACING SCALE === */
+       /* Mobile-first spacing (smaller values) */
+       --spacing-2xs: 0.25rem;           /* 4px */
+       --spacing-xs: 0.5rem;             /* 8px */
+       --spacing-sm: 0.75rem;            /* 12px */
+       --spacing-md: 1rem;               /* 16px */
+       --spacing-lg: 1.5rem;             /* 24px */
+       --spacing-xl: 2rem;               /* 32px */
+       --spacing-2xl: 2.5rem;            /* 40px */
+       --spacing-3xl: 3rem;              /* 48px */
+
+
+       /* === BORDER RADIUS === */
+       --radius-sm: 0.75rem;             /* 12px - image corners */
+       --radius-md: 1rem;                /* 16px - prep-time box */
+       --radius-lg: 1.25rem;             /* 20px - card corners */
+       --radius-xl: 1.5rem;              /* 24px - card corners desktop */
+
+
+       /* === BORDERS === */
+       /* Note: Using pixels for borders as they should stay fixed */
+       --border-thin: 1px;
+       --border-color: var(--color-stone-150);
+
+
+       /* === BREAKPOINTS === */
+       /* Reference values (used in media queries) */
+       --breakpoint-tablet: 48rem;       /* 768px */
+       --breakpoint-desktop: 56.25rem;   /* 900px */
+       --breakpoint-desktop-lg: 75rem;   /* 1200px */
+
+
+       /* === LAYOUT === */
+       /* Max widths for content containers */
+       --container-mobile: 100%;
+       --container-tablet: 45rem;        /* 720px */
+       --container-desktop: 46rem;       /* 736px - matches design */
+
+
+       /* === TRANSITIONS === */
+       --transition-base: 0.3s ease;
+       --transition-fast: 0.15s ease;
+
+       /* === COMPONENT SPACING === */
+         /* Card padding */
+
+         --card-padding-mobile: var(--spacing-lg);      /* 24px / 1.5rem */
+         --card-padding-tablet: var(--spacing-xl);      /* 32px / 2rem */
+         --card-padding-desktop: var(--spacing-2xl);    /* 40px / 2.5rem */
+
+         /* Section spacing */
+         --section-spacing-mobile: var(--spacing-lg);   /* 24px / 1.5rem */
+         --section-spacing-desktop: var(--spacing-xl);  /* 32px / 2rem */
+
+         /* List item spacing */
+         --list-item-gap: var(--spacing-xs);            /* 8px / 0.5rem */
+         --list-item-indent: var(--spacing-lg);         /* 24px / 1.5rem */
+   }
+
+   /* ===============================================
+                        BASE STYLES
+      =============================================== */
+
+     /* Root element setup */
+   html {
+     /* Ensure base font-size is 16px (1rem) */
+     font-size: 16px;
+
+     /* Smooth scrolling for anchor links */
+     scroll-behavior: smooth;
+
+     /* Better font rendering */
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+   }
+
+   /* Body base styles */
+   body {
+     /* Background color from design */
+     background-color: var(--color-stone-100);
+
+     /* Default typography */
+     font-family: var(--font-sans);
+     font-size: var(--font-size-base);
+     font-weight: var(--font-weight-regular);
+     color: var(--color-stone-600);
+     line-height: var(--line-height-relaxed);
+
+     /* Reset default margins */
+     margin: 0;
+     padding: 0;
+
+     /* Ensure minimum height */
+     min-height: 100vh;
+   }
+
+   /* Remove default list styles (we'll add custom ones) */
+   ul,
+   ol {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+   }
+
+   /* Image defaults */
+   img {
+     /* Make images responsive by default */
+     max-width: 100%;
+     height: auto;
+
+     /* Remove extra space below images */
+     display: block;
+   }
+
+   /* Remove default figure margins */
+   figure {
+     margin: 0;
+   }
+
+   /* Heading defaults - will be customized per element */
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+     margin: 0;
+     font-weight: var(--font-weight-regular);
+     line-height: var(--line-height-tight);
+   }
+
+   /* Paragraph defaults */
+   p {
+     margin: 0;
+   }
+
+   /* Link defaults */
+   a {
+     color: inherit;
+     text-decoration: none;
+     transition: var(--transition-base);
+   }
+
+   a:hover {
+     opacity: 0.8;
+   }
+
+   /* Table reset */
+   table {
+     border-collapse: collapse;
+     border-spacing: 0;
+     width: 100%;
+   }
+
+   /* Strong/bold elements */
+   strong {
+     font-weight: var(--font-weight-bold);
+   }
+
+
+   /* ================== SYTLES ============================ */
+
+   /* MOBIEL FIRST */
+/**{
+  border: 1px solid #171717;
+}*/
+   .recipe{
+     inline-size: 100%;
+     padding: 0;
+     margin: 0;
+   }
+
+   .recipe-card{
+     background-color: var(--color-white);
+     overflow: hidden;
+     margin: 0;
+
+   }
+
+   .recipe-card__image{
+     display: block;
+     margin: 0;
+     overflow: hidden;
+     inline-size: 100%;
+     block-size: auto;
+   }
+
+   .recipe-card__header{
+      padding: var(--card-padding-mobile);
+      margin: 0;
+   }
+
+   .recipe-card__title{
+     font-family: var(--font-serif);
+     font-size: var(--font-size-xl);
+     font-weight: var(--font-weight-bold);
+     line-height: var(--line-height-tight);
+     margin: 0;
+     margin-block-end: var(--spacing-sm);
+     color: var(--color-stone-900);
+   }
+   .recipe-card__description{
+     font-family: var(--font-sans);
+     font-size: var(--font-size-md);
+     font-weight: var(--font-weight-regular);
+     line-height: var(--line-height-relaxed);
+     margin: 0;
+     color: var(--color-stone-600);
+   }
+
+   .prep-time{
+      background-color: var(--color-rose-50);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      margin: var(--card-padding-mobile);
+      padding: var(--spacing-md);
+      margin-block-end: var(--spacing-2xl);
+   }
+
+   .prep-time__heading{
+     font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-rose-800);
+   }
+
+   .prep-time__list{
+     list-style-type: disc;
+      display: flex;
+      flex-direction: column  ;
+      gap: var(--spacing-xs);
+      padding: var(--spacing-sm) var(--spacing-2xl);
+      margin: 0;
+   }
+
+   .prep-time__list li::marker {
+        color: var(--color-brown-800);
+        font-weight: bold;
+
+      }
+
+   .ingredients{
+      margin: var(--section-spacing-mobile);
+      border-block-start: 1px solid var(--border-color);
+      margin-block-end: var(--spacing-2xl);
+   }
+
+   .ingredients__heading{
+      font-family: var(--font-serif);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-tight);
+      color: var(--color-brown-800);
+      margin: 0;
+      margin-block: var(--spacing-xl);
+   }
+
+   .ingredients__list{
+      list-style-type: disc;
+      display: flex;
+      flex-direction: column;
+      gap: var(--list-item-gap);
+      padding-inline-start: var(--list-item-indent);
+      margin: 0;
+   }
+   .ingredients__list li::marker {
+     color: var(--color-brown-800);
+   }
+
+   .instructions{
+      margin: 0 var(--section-spacing-mobile) var(--spacing-xl) var(--section-spacing-mobile);
+      border-block-start: 1px solid var(--border-color);
+   }
+
+   .instructions__heading{
+      font-family: var(--font-serif);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-tight);
+      color: var(--color-brown-800);
+      margin: 0;
+      margin-block: var(--spacing-xl);
+
+   }
+
+   .instructions__list{
+      list-style-type: decimal;
+      display: flex;
+      flex-direction: column;
+      gap: var(--list-item-gap);
+      padding-inline-start: var(--list-item-indent);
+      margin: 0;
+   }
+
+   .instructions__list li::marker {
+     color: var(--color-brown-800);
+     font-weight: bold;
+
+   }
+
+   .instructions__step-title{
+     color: var(--color-stone-600);
+   }
+
+   ol li, ul li{
+     padding-inline-start: var(--spacing-md);
+   }
+
+   .nutrition{
+      margin: var(--section-spacing-mobile);
+      margin-block-start: 0;
+      border-block-start: 1px solid var(--border-color);
+
+   }
+
+   .nutrition__heading{
+      font-family: var(--font-serif);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-tight);
+      color: var(--color-brown-800);
+      margin: 0;
+      margin-block: var(--spacing-xl);
+
+   }
+
+   .nutrition__table{
+     inline-size: 80%;
+     margin-inline-start: auto;
+      margin-inline-end: auto;
+   }
+
+   .nutrition__row{
+     border-block-end: 1px solid var(--border-color);
+   }
+
+
+
+    .nutrition__label, .nutrition__value{
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-regular);
+      line-height: var(--line-height-normal);
+      color: var(--color-stone-600);
+      padding-block: var(--spacing-sm);
+    }
+
+    .nutrition__value{
+      color: var(--color-brown-800);
+      font-weight: var(--font-weight-semibold);
+      padding-inline-start: 0;
+    }
+
+    .attribution{
+      font-size: var(--font-size-sm);
+      text-align: center;
+      margin: var(--spacing-xl);
+      color: var(--color-stone-600);
+    }
+
+    /* ============ TABLET & DESKTOP STYLES =============== */
