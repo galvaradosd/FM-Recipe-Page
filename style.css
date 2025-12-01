@@ -530,3 +530,258 @@ meter {
     }
 
     /* ============ TABLET & DESKTOP STYLES =============== */
+
+    /* ===================================================================
+       TABLET STYLES - Starting at 768px (48rem)
+       ===================================================================== */
+    @media (min-width: 48rem) {
+      /* Center the recipe container */
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--spacing-2xl) var(--spacing-md);
+      }
+
+      /* Limit max width and add margin for centering */
+      .recipe {
+        max-inline-size: var(--container-tablet);
+        margin: 0 auto;
+      }
+
+
+      .recipe-card {
+        border-radius: var(--radius-lg);
+      }
+
+
+      .recipe-card__image {
+        margin-block-end: 0;
+        padding-inline-start:var(--card-padding-tablet) ;
+        padding-inline-end: var(--card-padding-tablet);
+      }
+
+      .recipe-card__img {
+        border-radius: var(--radius-md);
+      }
+
+
+      .recipe-card__header {
+        padding: var(--card-padding-tablet);
+        padding-block-start: var(--spacing-xl);
+      }
+
+
+      .recipe-card__title {
+        font-size: 2rem; /* 32px */
+      }
+
+
+      .prep-time {
+        margin: var(--card-padding-tablet);
+        padding: var(--spacing-lg);
+      }
+
+
+      .ingredients,
+      .instructions,
+      .nutrition {
+        margin-inline: var(--card-padding-tablet);
+      }
+
+
+      .instructions {
+        margin-block-end: var(--spacing-2xl);
+      }
+
+
+      .nutrition__table {
+        inline-size: 90%;
+      }
+    }
+
+
+    /* ===================================================================
+       DESKTOP STYLES - Starting at 900px (56.25rem)
+       ===================================================================== */
+    @media (min-width: 56.25rem) {
+      /* Increase body padding for larger screens */
+      body {
+        padding: var(--spacing-3xl) var(--spacing-lg);
+      }
+
+      /* Set desktop max width */
+      .recipe {
+        max-inline-size: var(--container-desktop);
+      }
+
+      /* Larger border-radius for desktop */
+      .recipe-card {
+        border-radius: var(--radius-xl);
+      }
+
+      /* Increase image margin and border-radius */
+      .recipe-card__image {
+        margin: var(--card-padding-desktop);
+        margin-block-end: 0;
+        border-radius: var(--radius-md);
+        margin-inline: auto;
+      }
+
+      /* Desktop header padding */
+      .recipe-card__header {
+        padding: var(--card-padding-desktop);
+        padding-block-start: var(--spacing-2xl);
+      }
+
+      /* Larger title for desktop */
+      .recipe-card__title {
+        font-size: var(--font-size-2xl); /* 36px / 2.25rem */
+        margin-block-end: var(--spacing-lg);
+      }
+
+      /* Larger description text */
+      .recipe-card__description {
+        font-size: 1.125rem; /* 18px */
+      }
+
+      /* Increase prep-time margins and padding */
+      .prep-time {
+        margin: var(--card-padding-desktop);
+        padding: var(--spacing-xl);
+        margin-block-end: var(--spacing-2xl);
+      }
+
+      /* Larger prep-time heading */
+      .prep-time__heading {
+        font-size: 1.375rem; /* 22px */
+        margin-block-end: var(--spacing-sm);
+      }
+
+      /* Increase section margins */
+      .ingredients,
+      .instructions,
+      .nutrition {
+        margin-inline: var(--card-padding-desktop);
+        padding-block-start: var(--spacing-2xl);
+      }
+
+      /* Larger section headings */
+      .ingredients__heading,
+      .instructions__heading,
+      .nutrition__heading {
+        font-size: 2rem; /* 32px */
+        margin-block-end: var(--spacing-sm);
+      }
+
+      /* More spacing between list items */
+      .ingredients__list,
+      .instructions__list {
+        gap: var(--spacing-sm);
+      }
+
+      /* Larger list item padding */
+      ol li,
+      ul li {
+        padding-inline-start: var(--spacing-lg);
+      }
+
+      /* Better spacing for instruction steps */
+      .instructions__list {
+        padding-inline-start: var(--spacing-xl);
+      }
+
+      /* Nutrition section adjustments */
+      .nutrition {
+        margin-block-start: var(--spacing-xl);
+        padding-block-end: var(--spacing-2xl);
+      }
+
+      /* Nutrition note text slightly larger */
+      .nutrition__note {
+        font-size: 1.0625rem; /* 17px */
+        margin-block-end: var(--spacing-lg);
+      }
+
+      /* Full width table on desktop */
+      .nutrition__table {
+        inline-size: 100%;
+      }
+
+      /* More padding in table cells */
+      .nutrition__label,
+      .nutrition__value {
+        padding-block: var(--spacing-md);
+      }
+
+      /* Larger table text */
+      .nutrition__label {
+        font-size: 1.0625rem; /* 17px */
+      }
+
+      .nutrition__value {
+        font-size: 1.125rem; /* 18px */
+      }
+
+      /* Attribution spacing */
+      .attribution {
+        margin-block: var(--spacing-2xl);
+      }
+    }
+
+
+    /* ===================================================================
+       LARGE DESKTOP - Starting at 1200px (75rem)
+       ===================================================================== */
+    @media (min-width: 75rem) {
+      /* Maximum width constraint for very large screens */
+      .recipe {
+        max-inline-size: 52rem; /* 832px - slightly larger for big screens */
+      }
+
+      /* Extra padding on very large screens */
+      body {
+        padding: var(--spacing-3xl) var(--spacing-2xl);
+      }
+
+      /* Subtle hover effect for interactive elements */
+      .attribution a:hover {
+        color: var(--color-brown-800);
+        opacity: 1;
+      }
+    }
+
+
+    /* ===================================================================
+       RESPONSIVE IMAGE OPTIMIZATION
+       ===================================================================== */
+
+    /* Ensure image maintains aspect ratio across all sizes */
+    .recipe-card__img {
+      inline-size: 100%;
+      block-size: auto;
+      object-fit: cover;
+    }
+
+
+    /* ===================================================================
+       ACCESSIBILITY IMPROVEMENTS
+       ===================================================================== */
+
+    /* Focus states for better keyboard navigation */
+    a:focus-visible {
+      outline: 2px solid var(--color-brown-800);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Ensure interactive elements are accessible */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
