@@ -120,37 +120,3 @@ meter {
 ::-webkit-details-marker {
   display: none;
 }
-
-/* BLOCK: prep-time */
-.prep-time {
-  padding: 20px;
-  background-color: #fff;
-}
-
-/* MODIFIER del bloque */
-.prep-time--highlighted {
-  background-color: #fff5fa;
-}
-
-/* ELEMENTS del bloque */
-.prep-time__heading {
-  font-size: 18px;
-  color: #7a284e;
-}
-
-.prep-time__list {
-  list-style: none;
-  padding: 0;
-}
-
-.prep-time__item {
-  margin-bottom: 8px;
-}
-
-.prep-time__label {
-  font-weight: 600;
-}
-
-.prep-time__value {
-  color: #5f564d;
-}
