@@ -22,13 +22,6 @@ A responsive recipe page featuring a simple omelette recipe with preparation tim
 
 ![Recipe Page Preview](./assets/images/image-omelette.jpeg)
 
-### Links
-
-- Solution URL: [Add solution URL here]
-- Live Site URL: [Add live site URL here]
-
-## My Process
-
 ### Built With
 
 - Semantic HTML5 markup
