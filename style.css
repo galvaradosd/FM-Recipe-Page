@@ -1,7 +1,6 @@
 /* FONT FAMILY */
 
-@import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Outfit:wght@100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Young+Serif&family=Outfit:wght@100..900&display=swap");
 
 /* =====================================================================
                                 CSS Reset
@@ -12,27 +11,23 @@
   display: revert;
 }
 
-/* Preferred box-sizing value */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Fix mobile Safari increase font-size on landscape mode */
 html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
 }
 
-/* Reapply the pointer cursor for anchor tags */
 a,
 button {
   cursor: revert;
 }
 
-/* Remove list styles (bullets/numbers) */
 ol,
 ul,
 menu,
@@ -40,60 +35,47 @@ summary {
   list-style: none;
 }
 
-/* Firefox: solve issue where nested ordered lists continue numbering from parent (https://bugzilla.mozilla.org/show_bug.cgi?id=1881517) */
 ol {
   counter-reset: revert;
 }
 
-/* For images to not be able to exceed their container */
 img {
   max-inline-size: 100%;
   max-block-size: 100%;
 }
 
-/* removes spacing between cells in tables */
 table {
   border-collapse: collapse;
 }
 
-/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
 input,
 textarea {
   -webkit-user-select: auto;
   user-select: auto;
 }
 
-/* revert the 'white-space' property for textarea elements on Safari */
 textarea {
   white-space: revert;
 }
 
-/* minimum style to allow to style meter element */
 meter {
   -webkit-appearance: revert;
   appearance: revert;
 }
 
-/* preformatted text - use only for this feature */
 :where(pre) {
   all: revert;
   box-sizing: border-box;
 }
 
-/* reset default text opacity of input placeholder */
 ::placeholder {
   color: unset;
 }
 
-/* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
 :where([hidden]) {
   display: none;
 }
 
-/* revert for bug in Chromium browsers
-   - fix for the content editable attribute will work properly.
-   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
 :where([contenteditable]:not([contenteditable="false"])) {
   -moz-user-modify: read-write;
   -webkit-user-modify: read-write;
@@ -104,684 +86,637 @@ meter {
   user-select: auto;
 }
 
-/* apply back the draggable feature - exist only in Chromium and Safari */
 :where([draggable="true"]) {
   -webkit-user-drag: element;
 }
 
-/* Revert Modal native behavior */
 :where(dialog:modal) {
   all: revert;
   box-sizing: border-box;
 }
 
-/* Remove details summary webkit styles */
 ::-webkit-details-marker {
   display: none;
 }
-
 
 /* =====================================================================
                               VARIABLES
    ===================================================================== */
 
-   :root{
-     /* === COLOR PALETTE === */
-     /* Base color from style guide */
-     --color-white  : hsl(0, 0%, 100%);
+:root {
+  /* === COLOR PALETTE === */
+  /* Base color from style guide */
+  --color-white: hsl(0, 0%, 100%);
 
-     /* Stone scale - neutral grays with warm undertone */
+  /* Stone scale - neutral grays with warm undertone */
 
-     --color-stone-100 : hsl(30, 54%, 90%);
-     --color-stone-150: hsl(30, 18%, 87%);
-     --color-stone-600: hsl(30, 10%, 34%);
-     --color-stone-900: hsl(30, 5%, 18%);
+  --color-stone-100: hsl(30, 54%, 90%);
+  --color-stone-150: hsl(30, 18%, 87%);
+  --color-stone-600: hsl(30, 10%, 34%);
+  --color-stone-900: hsl(30, 5%, 18%);
 
-     /* Brown - for ingredientes/instructions headings */
+  /* Brown - for ingredientes/instructions headings */
 
-     --color-brown-800: hsl(14, 45%,36%);
+  --color-brown-800: hsl(14, 45%, 36%);
 
-     /* Rose - for preparation time section */
+  /* Rose - for preparation time section */
 
-     --color-rose-800: hsl(332, 51%, 32%);
-     --color-rose-50: hsl(330, 100%, 98%);
+  --color-rose-800: hsl(332, 51%, 32%);
+  --color-rose-50: hsl(330, 100%, 98%);
 
-     /* ======== TYPOGRAPHY ==================== */
+  /* ======== TYPOGRAPHY ==================== */
 
-     /* Font families */
-     --font-serif: 'Young Serif', serif;
-     --font-sans: 'Outfit', sans-serif;
+  /* Font families */
+  --font-serif: "Young Serif", serif;
+  --font-sans: "Outfit", sans-serif;
 
-     /* Font sizes - Mobile first */
-       --font-size-sm: 0.875rem;         /* 14px - small text, attribution */
-       --font-size-md: 1rem;             /* 16px - body text */
-       --font-size-lg: 1.25rem;          /* 20px - section subheadings */
-       --font-size-xl: 1.75rem;          /* 28px - main headings mobile */
-       --font-size-2xl: 2.25rem;         /* 36px - main heading desktop */
+  /* Font sizes - Mobile first */
+  --font-size-sm: 0.875rem; /* 14px - small text, attribution */
+  --font-size-md: 1rem; /* 16px - body text */
+  --font-size-lg: 1.25rem; /* 20px - section subheadings */
+  --font-size-xl: 1.75rem; /* 28px - main headings mobile */
+  --font-size-2xl: 2.25rem; /* 36px - main heading desktop */
 
-       /* Font weights */
-       --font-weight-regular: 400;
-       --font-weight-semibold: 600;
-       --font-weight-bold: 700;
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-       /* Line heights */
-       --line-height-tight: 1.2;         /* For headings */
-       --line-height-normal: 1.5;        /* For body text */
-       --line-height-relaxed: 1.6;       /* For paragraphs */
+  /* Line heights */
+  --line-height-tight: 1.2; /* For headings */
+  --line-height-normal: 1.5; /* For body text */
+  --line-height-relaxed: 1.6; /* For paragraphs */
 
+  /* === SPACING SCALE === */
+  /* Mobile-first spacing (smaller values) */
+  --spacing-2xs: 0.25rem; /* 4px */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 0.75rem; /* 12px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 2.5rem; /* 40px */
+  --spacing-3xl: 3rem; /* 48px */
 
-       /* === SPACING SCALE === */
-       /* Mobile-first spacing (smaller values) */
-       --spacing-2xs: 0.25rem;           /* 4px */
-       --spacing-xs: 0.5rem;             /* 8px */
-       --spacing-sm: 0.75rem;            /* 12px */
-       --spacing-md: 1rem;               /* 16px */
-       --spacing-lg: 1.5rem;             /* 24px */
-       --spacing-xl: 2rem;               /* 32px */
-       --spacing-2xl: 2.5rem;            /* 40px */
-       --spacing-3xl: 3rem;              /* 48px */
+  /* === BORDER RADIUS === */
+  --radius-sm: 0.75rem; /* 12px - image corners */
+  --radius-md: 1rem; /* 16px - prep-time box */
+  --radius-lg: 1.25rem; /* 20px - card corners */
+  --radius-xl: 1.5rem; /* 24px - card corners desktop */
 
+  /* === BORDERS === */
+  /* Note: Using pixels for borders as they should stay fixed */
+  --border-thin: 1px;
+  --border-color: var(--color-stone-150);
 
-       /* === BORDER RADIUS === */
-       --radius-sm: 0.75rem;             /* 12px - image corners */
-       --radius-md: 1rem;                /* 16px - prep-time box */
-       --radius-lg: 1.25rem;             /* 20px - card corners */
-       --radius-xl: 1.5rem;              /* 24px - card corners desktop */
+  /* === BREAKPOINTS === */
+  /* Reference values (used in media queries) */
+  --breakpoint-tablet: 48rem; /* 768px */
+  --breakpoint-desktop: 56.25rem; /* 900px */
+  --breakpoint-desktop-lg: 75rem; /* 1200px */
 
+  /* === LAYOUT === */
+  /* Max widths for content containers */
+  --container-mobile: 100%;
+  --container-tablet: 45rem; /* 720px */
+  --container-desktop: 46rem; /* 736px - matches design */
 
-       /* === BORDERS === */
-       /* Note: Using pixels for borders as they should stay fixed */
-       --border-thin: 1px;
-       --border-color: var(--color-stone-150);
+  /* === TRANSITIONS === */
+  --transition-base: 0.3s ease;
+  --transition-fast: 0.15s ease;
 
+  /* === COMPONENT SPACING === */
+  /* Card padding */
 
-       /* === BREAKPOINTS === */
-       /* Reference values (used in media queries) */
-       --breakpoint-tablet: 48rem;       /* 768px */
-       --breakpoint-desktop: 56.25rem;   /* 900px */
-       --breakpoint-desktop-lg: 75rem;   /* 1200px */
+  --card-padding-mobile: var(--spacing-lg); /* 24px / 1.5rem */
+  --card-padding-tablet: var(--spacing-xl); /* 32px / 2rem */
+  --card-padding-desktop: var(--spacing-2xl); /* 40px / 2.5rem */
 
+  /* Section spacing */
+  --section-spacing-mobile: var(--spacing-lg); /* 24px / 1.5rem */
+  --section-spacing-desktop: var(--spacing-xl); /* 32px / 2rem */
 
-       /* === LAYOUT === */
-       /* Max widths for content containers */
-       --container-mobile: 100%;
-       --container-tablet: 45rem;        /* 720px */
-       --container-desktop: 46rem;       /* 736px - matches design */
+  /* List item spacing */
+  --list-item-gap: var(--spacing-xs); /* 8px / 0.5rem */
+  --list-item-indent: var(--spacing-lg); /* 24px / 1.5rem */
+}
 
-
-       /* === TRANSITIONS === */
-       --transition-base: 0.3s ease;
-       --transition-fast: 0.15s ease;
-
-       /* === COMPONENT SPACING === */
-         /* Card padding */
-
-         --card-padding-mobile: var(--spacing-lg);      /* 24px / 1.5rem */
-         --card-padding-tablet: var(--spacing-xl);      /* 32px / 2rem */
-         --card-padding-desktop: var(--spacing-2xl);    /* 40px / 2.5rem */
-
-         /* Section spacing */
-         --section-spacing-mobile: var(--spacing-lg);   /* 24px / 1.5rem */
-         --section-spacing-desktop: var(--spacing-xl);  /* 32px / 2rem */
-
-         /* List item spacing */
-         --list-item-gap: var(--spacing-xs);            /* 8px / 0.5rem */
-         --list-item-indent: var(--spacing-lg);         /* 24px / 1.5rem */
-   }
-
-   /* ===============================================
+/* ===============================================
                         BASE STYLES
       =============================================== */
 
-     /* Root element setup */
-   html {
-     /* Ensure base font-size is 16px (1rem) */
-     font-size: 16px;
+/* Root element setup */
+html {
+  /* Ensure base font-size is 16px (1rem) */
+  font-size: 16px;
 
-     /* Smooth scrolling for anchor links */
-     scroll-behavior: smooth;
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
 
-     /* Better font rendering */
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
-   }
+  /* Better font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-   /* Body base styles */
-   body {
-     /* Background color from design */
-     background-color: var(--color-stone-100);
+/* Body base styles */
+body {
+  /* Background color from design */
+  background-color: var(--color-stone-100);
 
-     /* Default typography */
-     font-family: var(--font-sans);
-     font-size: var(--font-size-base);
-     font-weight: var(--font-weight-regular);
-     color: var(--color-stone-600);
-     line-height: var(--line-height-relaxed);
+  /* Default typography */
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-stone-600);
+  line-height: var(--line-height-relaxed);
 
-     /* Reset default margins */
-     margin: 0;
-     padding: 0;
+  /* Reset default margins */
+  margin: 0;
+  padding: 0;
 
-     /* Ensure minimum height */
-     min-height: 100vh;
-   }
+  /* Ensure minimum height */
+  min-height: 100vh;
+}
 
-   /* Remove default list styles (we'll add custom ones) */
-   ul,
-   ol {
-     list-style: none;
-     padding: 0;
-     margin: 0;
-   }
+/* Remove default list styles (we'll add custom ones) */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-   /* Image defaults */
-   img {
-     /* Make images responsive by default */
-     max-width: 100%;
-     height: auto;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-     /* Remove extra space below images */
-     display: block;
-   }
+figure {
+  margin: 0;
+}
 
-   /* Remove default figure margins */
-   figure {
-     margin: 0;
-   }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+}
 
-   /* Heading defaults - will be customized per element */
-   h1,
-   h2,
-   h3,
-   h4,
-   h5,
-   h6 {
-     margin: 0;
-     font-weight: var(--font-weight-regular);
-     line-height: var(--line-height-tight);
-   }
+p {
+  margin: 0;
+}
 
-   /* Paragraph defaults */
-   p {
-     margin: 0;
-   }
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-base);
+}
 
-   /* Link defaults */
-   a {
-     color: inherit;
-     text-decoration: none;
-     transition: var(--transition-base);
-   }
+a:hover {
+  opacity: 0.8;
+}
 
-   a:hover {
-     opacity: 0.8;
-   }
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
 
-   /* Table reset */
-   table {
-     border-collapse: collapse;
-     border-spacing: 0;
-     width: 100%;
-   }
+strong {
+  font-weight: var(--font-weight-bold);
+}
 
-   /* Strong/bold elements */
-   strong {
-     font-weight: var(--font-weight-bold);
-   }
+/* ================== SYTLES ============================ */
 
-
-   /* ================== SYTLES ============================ */
-
-   /* MOBIEL FIRST */
+/* MOBIEL FIRST */
 /**{
   border: 1px solid #171717;
 }*/
-   .recipe{
-     inline-size: 100%;
-     padding: 0;
-     margin: 0;
-   }
+.recipe {
+  inline-size: 100%;
+  padding: 0;
+  margin: 0;
+}
 
-   .recipe-card{
-     background-color: var(--color-white);
-     overflow: hidden;
-     margin: 0;
+.recipe-card {
+  background-color: var(--color-white);
+  overflow: hidden;
+  margin: 0;
+}
 
-   }
+.recipe-card__image {
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  inline-size: 100%;
+  block-size: auto;
+}
 
-   .recipe-card__image{
-     display: block;
-     margin: 0;
-     overflow: hidden;
-     inline-size: 100%;
-     block-size: auto;
-   }
+.recipe-card__header {
+  padding: var(--card-padding-mobile);
+  margin: 0;
+}
 
-   .recipe-card__header{
-      padding: var(--card-padding-mobile);
-      margin: 0;
-   }
+.recipe-card__title {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin: 0;
+  margin-block-end: var(--spacing-sm);
+  color: var(--color-stone-900);
+}
+.recipe-card__description {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+  color: var(--color-stone-600);
+}
 
-   .recipe-card__title{
-     font-family: var(--font-serif);
-     font-size: var(--font-size-xl);
-     font-weight: var(--font-weight-bold);
-     line-height: var(--line-height-tight);
-     margin: 0;
-     margin-block-end: var(--spacing-sm);
-     color: var(--color-stone-900);
-   }
-   .recipe-card__description{
-     font-family: var(--font-sans);
-     font-size: var(--font-size-md);
-     font-weight: var(--font-weight-regular);
-     line-height: var(--line-height-relaxed);
-     margin: 0;
-     color: var(--color-stone-600);
-   }
+.prep-time {
+  background-color: var(--color-rose-50);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  margin: var(--card-padding-mobile);
+  padding: var(--spacing-md);
+  margin-block-end: var(--spacing-2xl);
+}
 
-   .prep-time{
-      background-color: var(--color-rose-50);
-      border-radius: var(--radius-md);
-      display: flex;
-      flex-direction: column;
-      margin: var(--card-padding-mobile);
-      padding: var(--spacing-md);
-      margin-block-end: var(--spacing-2xl);
-   }
+.prep-time__heading {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-rose-800);
+}
 
-   .prep-time__heading{
-     font-size: var(--font-size-lg);
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-rose-800);
-   }
+.prep-time__list {
+  list-style-type: disc;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-2xl);
+  margin: 0;
+}
 
-   .prep-time__list{
-     list-style-type: disc;
-      display: flex;
-      flex-direction: column  ;
-      gap: var(--spacing-xs);
-      padding: var(--spacing-sm) var(--spacing-2xl);
-      margin: 0;
-   }
+.prep-time__list li::marker {
+  color: var(--color-brown-800);
+  font-weight: bold;
+}
 
-   .prep-time__list li::marker {
-        color: var(--color-brown-800);
-        font-weight: bold;
+.ingredients {
+  margin: var(--section-spacing-mobile);
 
-      }
+  margin-block-end: var(--spacing-2xl);
+}
 
-   .ingredients{
-      margin: var(--section-spacing-mobile);
-      border-block-start: 1px solid var(--border-color);
-      margin-block-end: var(--spacing-2xl);
-   }
+.ingredients__heading {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-brown-800);
+  margin: 0;
+  margin-block: var(--spacing-xl);
+}
 
-   .ingredients__heading{
-      font-family: var(--font-serif);
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-bold);
-      line-height: var(--line-height-tight);
-      color: var(--color-brown-800);
-      margin: 0;
-      margin-block: var(--spacing-xl);
-   }
+.ingredients__list {
+  list-style-type: disc;
+  display: flex;
+  flex-direction: column;
+  gap: var(--list-item-gap);
+  padding-inline-start: var(--list-item-indent);
+  margin: 0;
+}
+.ingredients__list li::marker {
+  color: var(--color-brown-800);
+}
 
-   .ingredients__list{
-      list-style-type: disc;
-      display: flex;
-      flex-direction: column;
-      gap: var(--list-item-gap);
-      padding-inline-start: var(--list-item-indent);
-      margin: 0;
-   }
-   .ingredients__list li::marker {
-     color: var(--color-brown-800);
-   }
+.instructions {
+  margin: 0 var(--section-spacing-mobile) var(--spacing-xl) var(--section-spacing-mobile);
+  border-block-start: 1px solid var(--border-color);
+}
 
-   .instructions{
-      margin: 0 var(--section-spacing-mobile) var(--spacing-xl) var(--section-spacing-mobile);
-      border-block-start: 1px solid var(--border-color);
-   }
+.instructions__heading {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-brown-800);
+  margin: 0;
+  margin-block: var(--spacing-xl);
+}
 
-   .instructions__heading{
-      font-family: var(--font-serif);
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-bold);
-      line-height: var(--line-height-tight);
-      color: var(--color-brown-800);
-      margin: 0;
-      margin-block: var(--spacing-xl);
+.instructions__list {
+  list-style-type: decimal;
+  display: flex;
+  flex-direction: column;
+  gap: var(--list-item-gap);
+  padding-inline-start: var(--list-item-indent);
+  margin: 0;
+}
 
-   }
+.instructions__list li::marker {
+  color: var(--color-brown-800);
+  font-weight: bold;
+}
 
-   .instructions__list{
-      list-style-type: decimal;
-      display: flex;
-      flex-direction: column;
-      gap: var(--list-item-gap);
-      padding-inline-start: var(--list-item-indent);
-      margin: 0;
-   }
+.instructions__step-title {
+  color: var(--color-stone-600);
+}
 
-   .instructions__list li::marker {
-     color: var(--color-brown-800);
-     font-weight: bold;
+ol li,
+ul li {
+  padding-inline-start: var(--spacing-md);
+}
 
-   }
+.nutrition {
+  margin: var(--section-spacing-mobile);
+  margin-block-start: 0;
+  border-block-start: 1px solid var(--border-color);
+}
 
-   .instructions__step-title{
-     color: var(--color-stone-600);
-   }
+.nutrition__heading {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-brown-800);
+  margin: 0;
+  margin-block: var(--spacing-xl);
+}
 
-   ol li, ul li{
-     padding-inline-start: var(--spacing-md);
-   }
+.nutrition__table {
+  inline-size: 80%;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
 
-   .nutrition{
-      margin: var(--section-spacing-mobile);
-      margin-block-start: 0;
-      border-block-start: 1px solid var(--border-color);
+.nutrition__row {
+  border-block-end: 1px solid var(--border-color);
+}
 
-   }
+.nutrition__label,
+.nutrition__value {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-stone-600);
+  padding-block: var(--spacing-sm);
+}
 
-   .nutrition__heading{
-      font-family: var(--font-serif);
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-bold);
-      line-height: var(--line-height-tight);
-      color: var(--color-brown-800);
-      margin: 0;
-      margin-block: var(--spacing-xl);
+.nutrition__value {
+  color: var(--color-brown-800);
+  font-weight: var(--font-weight-semibold);
+  padding-inline-start: 0;
+}
 
-   }
+.attribution {
+  font-size: var(--font-size-sm);
+  text-align: center;
+  margin: var(--spacing-xl);
+  color: var(--color-stone-600);
+}
 
-   .nutrition__table{
-     inline-size: 80%;
-     margin-inline-start: auto;
-      margin-inline-end: auto;
-   }
+/* ============ TABLET & DESKTOP STYLES =============== */
 
-   .nutrition__row{
-     border-block-end: 1px solid var(--border-color);
-   }
-
-
-
-    .nutrition__label, .nutrition__value{
-      font-size: var(--font-size-md);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--line-height-normal);
-      color: var(--color-stone-600);
-      padding-block: var(--spacing-sm);
-    }
-
-    .nutrition__value{
-      color: var(--color-brown-800);
-      font-weight: var(--font-weight-semibold);
-      padding-inline-start: 0;
-    }
-
-    .attribution{
-      font-size: var(--font-size-sm);
-      text-align: center;
-      margin: var(--spacing-xl);
-      color: var(--color-stone-600);
-    }
-
-    /* ============ TABLET & DESKTOP STYLES =============== */
-
-    /* ===================================================================
+/* ===================================================================
        TABLET STYLES - Starting at 768px (48rem)
        ===================================================================== */
-    @media (min-width: 48rem) {
-      /* Center the recipe container */
-      body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: var(--spacing-2xl) var(--spacing-md);
-      }
+@media (min-width: 48rem) {
+  /* Center the recipe container */
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
 
-      /* Limit max width and add margin for centering */
-      .recipe {
-        max-inline-size: var(--container-tablet);
-        margin: 0 auto;
-      }
+  /* Limit max width and add margin for centering */
+  .recipe {
+    max-inline-size: var(--container-tablet);
+    margin: 0 auto;
+  }
 
+  .recipe-card {
+    border-radius: var(--radius-lg);
+  }
 
-      .recipe-card {
-        border-radius: var(--radius-lg);
-      }
+  .recipe-card__image {
+    margin-block-end: 0;
+    padding-inline-start: var(--card-padding-tablet);
+    padding-inline-end: var(--card-padding-tablet);
+  }
 
+  .recipe-card__img {
+    border-radius: var(--radius-md);
+  }
 
-      .recipe-card__image {
-        margin-block-end: 0;
-        padding-inline-start:var(--card-padding-tablet) ;
-        padding-inline-end: var(--card-padding-tablet);
-      }
+  .recipe-card__header {
+    padding: var(--card-padding-tablet);
+    padding-block-start: var(--spacing-xl);
+  }
 
-      .recipe-card__img {
-        border-radius: var(--radius-md);
-      }
+  .recipe-card__title {
+    font-size: 2rem; /* 32px */
+  }
 
+  .prep-time {
+    margin: var(--card-padding-tablet);
+    padding: var(--spacing-lg);
+  }
 
-      .recipe-card__header {
-        padding: var(--card-padding-tablet);
-        padding-block-start: var(--spacing-xl);
-      }
+  .ingredients,
+  .instructions,
+  .nutrition {
+    margin-inline: var(--card-padding-tablet);
+    margin-block-start: 0;
+  }
 
+  .instructions {
+    margin-block-end: var(--spacing-2xl);
+  }
 
-      .recipe-card__title {
-        font-size: 2rem; /* 32px */
-      }
+  .nutrition__table {
+    inline-size: 90%;
+  }
+}
 
-
-      .prep-time {
-        margin: var(--card-padding-tablet);
-        padding: var(--spacing-lg);
-      }
-
-
-      .ingredients,
-      .instructions,
-      .nutrition {
-        margin-inline: var(--card-padding-tablet);
-      }
-
-
-      .instructions {
-        margin-block-end: var(--spacing-2xl);
-      }
-
-
-      .nutrition__table {
-        inline-size: 90%;
-      }
-    }
-
-
-    /* ===================================================================
+/* ===================================================================
        DESKTOP STYLES - Starting at 900px (56.25rem)
        ===================================================================== */
-    @media (min-width: 56.25rem) {
-      /* Increase body padding for larger screens */
-      body {
-        padding: var(--spacing-3xl) var(--spacing-lg);
-      }
+@media (min-width: 56.25rem) {
+  body {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+  }
 
-      /* Set desktop max width */
-      .recipe {
-        max-inline-size: var(--container-desktop);
-      }
+  .recipe {
+    max-inline-size: var(--container-desktop);
+  }
 
-      /* Larger border-radius for desktop */
-      .recipe-card {
-        border-radius: var(--radius-xl);
-      }
+  .recipe-card {
+    border-radius: var(--radius-xl);
+  }
 
-      /* Increase image margin and border-radius */
-      .recipe-card__image {
-        margin: var(--card-padding-desktop);
-        margin-block-end: 0;
-        border-radius: var(--radius-md);
-        margin-inline: auto;
-      }
+  .recipe-card__image {
+    margin: var(--card-padding-desktop);
+    margin-block-end: 0;
+    border-radius: var(--radius-md);
+    margin-inline: auto;
+  }
 
-      /* Desktop header padding */
-      .recipe-card__header {
-        padding: var(--card-padding-desktop);
-        padding-block-start: var(--spacing-2xl);
-      }
+  .recipe-card__header {
+    padding: var(--card-padding-desktop);
+    padding-block-start: var(--spacing-2xl);
+  }
 
-      /* Larger title for desktop */
-      .recipe-card__title {
-        font-size: var(--font-size-2xl); /* 36px / 2.25rem */
-        margin-block-end: var(--spacing-lg);
-      }
+  .recipe-card__title {
+    font-size: var(--font-size-2xl);
+    margin-block-end: var(--spacing-lg);
+  }
 
-      /* Larger description text */
-      .recipe-card__description {
-        font-size: 1.125rem; /* 18px */
-      }
+  .recipe-card__description {
+    font-size: 1.125rem;
+  }
 
-      /* Increase prep-time margins and padding */
-      .prep-time {
-        margin: var(--card-padding-desktop);
-        padding: var(--spacing-xl);
-        margin-block-end: var(--spacing-2xl);
-      }
+  .prep-time {
+    margin: var(--card-padding-desktop);
+    margin-block-start: 0;
+  }
 
-      /* Larger prep-time heading */
-      .prep-time__heading {
-        font-size: 1.375rem; /* 22px */
-        margin-block-end: var(--spacing-sm);
-      }
+  /* Larger prep-time heading */
+  .prep-time__heading {
+    font-size: 1.375rem; /* 22px */
+    margin-block-end: var(--spacing-sm);
+  }
 
-      /* Increase section margins */
-      .ingredients,
-      .instructions,
-      .nutrition {
-        margin-inline: var(--card-padding-desktop);
-        padding-block-start: var(--spacing-2xl);
-      }
+  /* Increase section margins */
+  .ingredients,
+  .instructions,
+  .nutrition {
+    margin-inline: var(--card-padding-desktop);
+    padding-block-start: 0;
+  }
 
-      /* Larger section headings */
-      .ingredients__heading,
-      .instructions__heading,
-      .nutrition__heading {
-        font-size: 2rem; /* 32px */
-        margin-block-end: var(--spacing-sm);
-      }
+  /* Larger section headings */
+  .ingredients__heading,
+  .instructions__heading,
+  .nutrition__heading {
+    font-size: 2rem; /* 32px */
+    margin-block-end: var(--spacing-sm);
+  }
 
-      /* More spacing between list items */
-      .ingredients__list,
-      .instructions__list {
-        gap: var(--spacing-sm);
-      }
+  /* More spacing between list items */
+  .ingredients__list,
+  .instructions__list {
+    gap: var(--spacing-sm);
+  }
 
-      /* Larger list item padding */
-      ol li,
-      ul li {
-        padding-inline-start: var(--spacing-lg);
-      }
+  /* Larger list item padding */
+  ol li,
+  ul li {
+    padding-inline-start: var(--spacing-lg);
+  }
 
-      /* Better spacing for instruction steps */
-      .instructions__list {
-        padding-inline-start: var(--spacing-xl);
-      }
+  /* Better spacing for instruction steps */
+  .instructions__list {
+    padding-inline-start: var(--spacing-xl);
+  }
 
-      /* Nutrition section adjustments */
-      .nutrition {
-        margin-block-start: var(--spacing-xl);
-        padding-block-end: var(--spacing-2xl);
-      }
+  /* Nutrition section adjustments */
+  .nutrition {
+    margin-block-start: var(--spacing-xl);
+    padding-block-end: var(--spacing-2xl);
+  }
 
-      /* Nutrition note text slightly larger */
-      .nutrition__note {
-        font-size: 1.0625rem; /* 17px */
-        margin-block-end: var(--spacing-lg);
-      }
+  /* Nutrition note text slightly larger */
+  .nutrition__note {
+    font-size: 1.0625rem; /* 17px */
+    margin-block-end: var(--spacing-lg);
+  }
 
-      /* Full width table on desktop */
-      .nutrition__table {
-        inline-size: 100%;
-      }
+  /* Full width table on desktop */
+  .nutrition__table {
+    inline-size: 100%;
+  }
 
-      /* More padding in table cells */
-      .nutrition__label,
-      .nutrition__value {
-        padding-block: var(--spacing-md);
-      }
+  /* More padding in table cells */
+  .nutrition__label,
+  .nutrition__value {
+    padding-inline-start: var(--spacing-xl);
+  }
 
-      /* Larger table text */
-      .nutrition__label {
-        font-size: 1.0625rem; /* 17px */
-      }
+  /* Larger table text */
+  .nutrition__label {
+    font-size: 1.0625rem; /* 17px */
+  }
 
-      .nutrition__value {
-        font-size: 1.125rem; /* 18px */
-      }
+  .nutrition__value {
+    font-size: 1.125rem; /* 18px */
+  }
 
-      /* Attribution spacing */
-      .attribution {
-        margin-block: var(--spacing-2xl);
-      }
-    }
+  /* Attribution spacing */
+  .attribution {
+    margin-block: var(--spacing-2xl);
+  }
+}
 
-
-    /* ===================================================================
+/* ===================================================================
        LARGE DESKTOP - Starting at 1200px (75rem)
        ===================================================================== */
-    @media (min-width: 75rem) {
-      /* Maximum width constraint for very large screens */
-      .recipe {
-        max-inline-size: 52rem; /* 832px - slightly larger for big screens */
-      }
+@media (min-width: 75rem) {
+  /* Maximum width constraint for very large screens */
+  .recipe {
+    max-inline-size: 52rem; /* 832px - slightly larger for big screens */
+  }
 
-      /* Extra padding on very large screens */
-      body {
-        padding: var(--spacing-3xl) var(--spacing-2xl);
-      }
+  /* Extra padding on very large screens */
+  body {
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+  }
 
-      /* Subtle hover effect for interactive elements */
-      .attribution a:hover {
-        color: var(--color-brown-800);
-        opacity: 1;
-      }
-    }
+  /* Subtle hover effect for interactive elements */
+  .attribution a:hover {
+    color: var(--color-brown-800);
+    opacity: 1;
+  }
+}
 
-
-    /* ===================================================================
+/* ===================================================================
        RESPONSIVE IMAGE OPTIMIZATION
        ===================================================================== */
 
-    /* Ensure image maintains aspect ratio across all sizes */
-    .recipe-card__img {
-      inline-size: 100%;
-      block-size: auto;
-      object-fit: cover;
-    }
+/* Ensure image maintains aspect ratio across all sizes */
+.recipe-card__img {
+  inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+}
 
-
-    /* ===================================================================
+/* ===================================================================
        ACCESSIBILITY IMPROVEMENTS
        ===================================================================== */
 
-    /* Focus states for better keyboard navigation */
-    a:focus-visible {
-      outline: 2px solid var(--color-brown-800);
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
+/* Focus states for better keyboard navigation */
+a:focus-visible {
+  outline: 2px solid var(--color-brown-800);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
 
-    /* Ensure interactive elements are accessible */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
+/* Ensure interactive elements are accessible */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+    scroll-behavior: auto;
+  }
+}
